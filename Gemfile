@@ -1,4 +1,4 @@
-ruby "1.9.3"
+ruby "2.2.1"
 
 source 'http://rubygems.org'
 
@@ -7,7 +7,7 @@ gem "rake", "10.0.3"
 gem "figaro"
 gem "rails_config"
 
-gem "rails", "= 3.2.18"
+gem "rails", "= 3.2.22"
 gem "aasm", "= 3.0.16"
 
 #gem 'utf8-cleaner'
@@ -36,9 +36,11 @@ end
 
 gem 'rest-client'
 gem 'diffy'
+gem 'fog', '1.37.0'
 gem 'asset_sync'
 
 group :development, :test do
+  gem 'test-unit'
   gem "rspec-rails", "~> 3.2.3"
   gem 'rspec-collection_matchers'
   gem 'rspec-activemodel-mocks'
@@ -81,7 +83,7 @@ group :assets do
   gem 'uglifier'
 end
 
-gem "nokogiri", "= 1.5.9"
+gem "nokogiri", "= 1.5.11"
 gem "mechanize", "= 2.7.1"
 gem "newrelic_rpm", "= 3.6.0.83"
 gem "airbrake"

@@ -68,3 +68,7 @@ server.crt
 server.csr
 server.key
 server.pass.key
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
