@@ -38,9 +38,9 @@ gem 'rest-client'
 gem 'diffy'
 gem 'fog', '1.37.0'
 gem 'asset_sync'
+gem 'test-unit'
 
 group :development, :test do
-  gem 'test-unit'
   gem "rspec-rails", "~> 3.2.3"
   gem 'rspec-collection_matchers'
   gem 'rspec-activemodel-mocks'
