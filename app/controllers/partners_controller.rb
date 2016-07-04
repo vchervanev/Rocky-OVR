@@ -143,6 +143,11 @@ HTML
     end
   end
 
+  def branding
+    @partner = current_partner
+    # TODO upload assets for previewing and approval
+  end
+
   protected
   def partner_id
     current_partner && current_partner.to_param
