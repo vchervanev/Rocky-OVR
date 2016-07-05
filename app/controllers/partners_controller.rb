@@ -148,7 +148,21 @@ HTML
     # TODO upload assets for previewing and approval
   end
 
+  def update_branding
+    @partner = current_partner
+    update_custom_css(@partner, params[:css_files])
+    redirect_to branding_partner_path
+  end
+
   protected
+
+  def update_custom_css(partner, css_files)
+    paf = PartnerAssetsFolder.new(partner)
+    (css_files || {}).each do |name, data|
+      paf.update_css(name, data, 'preview-')
+    end
+  end
+
   def partner_id
     current_partner && current_partner.to_param
   end

@@ -35,10 +35,11 @@ module ApplicationHelper
   end
 
   def partner_css(partner = @partner)
-    wl = partner && partner.whitelabeled?
+    preview = params.has_key? :preview
+    wl = partner && partner.whitelabeled? || preview
 
     stylesheets = []
-    stylesheets << (wl && partner.application_css_present? ? partner.application_css_url : "application")
+    stylesheets << (wl && partner.application_css_present?(preview) ? partner.application_css_url(preview) : "application")
     stylesheets << (wl && partner.registration_css_present? ? partner.registration_css_url : "registration")
     stylesheets += registrant_css
     stylesheets << partner.partner_css_url if wl && partner.partner_css_present?

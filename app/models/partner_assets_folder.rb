@@ -58,8 +58,8 @@ class PartnerAssetsFolder
   
 
   # Updates the css
-  def update_css(name, file)
-    update_path(css_path(name), file)
+  def update_css(name, file, prefix='')
+    update_path(css_path(name).sub(name, prefix+name), file)
   end
   
   def write_css(name, content)
@@ -173,7 +173,7 @@ class PartnerAssetsFolder
     ts   = Time.now.strftime("%Y%m%d%H%M%S")
 
     archive_path = File.join(@partner.absolute_old_assets_path, "#{name}-#{ts}#{ext}")
-    
+
     directory.files.create :key => archive_path, :body => file.body, :public=>false
     
     #FileUtils.cp path, archive_path

@@ -47,8 +47,8 @@ module PartnerAssets
     application_css_present? || registration_css_present? || partner_css_present?
   end
 
-  def application_css_present?
-    folder.asset_file_exists?(APP_CSS)
+  def application_css_present?(preview = false)
+    folder.asset_file_exists?((preview ? 'preview-' : '') + APP_CSS)
     #File.exists?(self.absolute_application_css_path)
   end
 
@@ -134,8 +134,8 @@ module PartnerAssets
     partner_path
   end
 
-  def application_css_url
-    folder.asset_url(APP_CSS)
+  def application_css_url(preview=false)
+    folder.asset_url((preview ? 'preview-' : '') + APP_CSS)
     #"#{assets_url}/#{APP_CSS}"
   end
   
